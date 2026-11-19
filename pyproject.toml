@@ -1,0 +1,51 @@
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "retail-demand-forecasting"
+version = "0.1.0"
+description = "Retail Demand Forecasting Platform"
+requires-python = ">=3.12,<3.13"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["retail_forecasting*"]
+
+
+# ==========================================
+# RUFF - Calidad y estilo de código
+# ==========================================
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",    # Errores de estilo
+    "F",    # Errores comunes de Python
+    "I",    # Orden de importaciones
+    "B",    # Posibles errores de programación
+    "UP",   # Modernización de sintaxis
+]
+
+# ==========================================
+# PYTEST - Pruebas automatizadas
+# ==========================================
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+# ==========================================
+# MYPY - Verificación estática de tipos
+# ==========================================
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "src"
+strict = true
+warn_unused_configs = true
